@@ -1,0 +1,497 @@
+-- Daniel Ochoche Samuel Data Analytics
+
+--Q1,How many countries have played in the world cup(5 years)
+          WITH
+              all_world_cup AS (
+	 SELECT 
+              'wc 2006' AS world_cup_year,
+	      team,
+	      points
+         FROM
+              fifa_2006
+         UNION ALL	  
+         SELECT 
+              'wc 2002' AS world_cup_year,
+	      teams,
+	      points
+         FROM
+             fifa_2002
+         UNION ALL
+         SELECT 
+             'wc 2010' AS world_cup_year,
+	     team,
+	     points
+         FROM
+             fifa_2010
+         UNION ALL
+         SELECT 
+             'wc 2014' AS world_cup_year,
+	     team,
+	     points
+         FROM
+             fifa_2014
+         UNION ALL
+         SELECT 
+             'wc 2018' AS world_cup_year,
+	     team,
+	     points
+        FROM
+            fifa_2018
+	    )
+
+        SELECT
+            COUNT(DISTINCT team)
+        FROM
+            all_world_cup
+;
+--Q2,total games played,win,loss, goals for and goal against
+         WITH
+    all_world_cup AS (
+	SELECT 
+    'wc 2006' AS world_cup_year,
+	team,
+	points,
+	games_played,
+	win,
+	loss,
+	goals_for,
+    goals_against
+FROM
+    fifa_2006
+UNION ALL	  
+SELECT 
+    'wc 2002' AS world_cup_year,
+	teams,
+	points,
+	games_played,
+	wins,
+	loss,
+	goals_for,
+    goal_against
+FROM
+    fifa_2002
+UNION ALL
+SELECT 
+    'wc 2010' AS world_cup_year,
+	team,
+	points,
+	games_played,
+	win,
+	loss,
+	goals_for,
+    goals_against
+FROM
+    fifa_2010
+UNION ALL
+SELECT 
+    'wc 2014' AS world_cup_year,
+	team,
+	points,
+	games_played,
+	win,
+	loss,
+	goals_for,
+    goals_against
+FROM
+    fifa_2014
+UNION ALL
+SELECT 
+    'wc 2018' AS world_cup_year,
+	team,
+	points,
+	games_played,
+	win,
+	loss,
+	goals_for,
+    goals_against
+FROM
+    fifa_2018
+	)
+
+SELECT
+    SUM(games_played) AS total_games_played,
+	SUM(win) AS total_wins,
+	SUM(loss) AS total_loss,
+	SUM(goals_for) AS total_gf,
+	SUM(goals_against) AS total_ga
+FROM
+    all_world_cup
+;
+--Q3,the country with the highhest and lowest appearance
+     WITH
+    all_world_cup AS (
+	SELECT 
+    'wc 2006' AS world_cup_year,
+	team,
+	position
+FROM
+    fifa_2006
+UNION ALL	  
+SELECT 
+    'wc 2002' AS world_cup_year,
+	teams,
+	position
+FROM
+    fifa_2002
+UNION ALL
+SELECT 
+    'wc 2010' AS world_cup_year,
+	team,
+	position
+FROM
+    fifa_2010
+UNION ALL
+SELECT 
+    'wc 2014' AS world_cup_year,
+	team,
+	position
+FROM
+    fifa_2014
+UNION ALL
+SELECT 
+    'wc 2018' AS world_cup_year,
+	team,
+	position
+FROM
+    fifa_2018
+	)
+
+SELECT 
+    *
+FROM
+    all_world_cup
+;
+--Q4,the country with the highest and lowest games played 
+     WITH
+    all_world_cup AS (
+	SELECT 
+    'wc 2006' AS world_cup_year,
+	team,
+	games_played
+FROM
+    fifa_2006
+UNION ALL	  
+SELECT 
+    'wc 2002' AS world_cup_year,
+	teams,
+	games_played
+FROM
+    fifa_2002
+UNION ALL
+SELECT 
+    'wc 2010' AS world_cup_year,
+	team,
+	games_played
+FROM
+    fifa_2010
+UNION ALL
+SELECT 
+    'wc 2014' AS world_cup_year,
+	team,
+	games_played
+FROM
+    fifa_2014
+UNION ALL
+SELECT 
+    'wc 2018' AS world_cup_year,
+	team,
+	games_played
+FROM
+    fifa_2018
+	)
+
+SELECT 
+    *
+FROM
+    all_world_cup
+;
+--Q5,The country with the highest and lowest games won
+     WITH
+    all_world_cup AS (
+SELECT 
+    'wc 2006' AS world_cup_year,
+	team,
+	games_played,
+	win
+FROM
+    fifa_2006
+UNION ALL	  
+SELECT 
+    'wc 2002' AS world_cup_year,
+	teams,
+	games_played,
+	wins
+FROM
+    fifa_2002
+UNION ALL
+SELECT 
+    'wc 2010' AS world_cup_year,
+	team,
+	games_played,
+	win
+FROM
+    fifa_2010
+UNION ALL
+SELECT 
+    'wc 2014' AS world_cup_year,
+	team,
+	games_played,
+	win
+FROM
+    fifa_2014
+UNION ALL
+SELECT 
+    'wc 2018' AS world_cup_year,
+	team,
+	games_played,
+	win
+FROM
+    fifa_2018
+	)
+
+SELECT 
+    *
+FROM
+    all_world_cup
+;
+--Q6,the country with the highest and lowest loss
+     WITH
+    all_world_cup AS (
+SELECT 
+    'wc 2006' AS world_cup_year,
+	team,
+	games_played,
+	loss
+FROM
+    fifa_2006
+UNION ALL	  
+SELECT 
+    'wc 2002' AS world_cup_year,
+	teams,
+	games_played,
+	loss
+FROM
+    fifa_2002
+UNION ALL
+SELECT 
+    'wc 2010' AS world_cup_year,
+	team,
+	games_played,
+	loss
+FROM
+    fifa_2010
+UNION ALL
+SELECT 
+    'wc 2014' AS world_cup_year,
+	team,
+	games_played,
+	loss
+FROM
+    fifa_2014
+UNION ALL
+SELECT 
+    'wc 2018' AS world_cup_year,
+	team,
+	games_played,
+	loss
+FROM
+    fifa_2018
+	)
+
+SELECT 
+    *
+FROM
+    all_world_cup
+;
+--Q7,the country with the highest and lowest goals for
+    WITH
+    all_world_cup AS (
+SELECT 
+    'wc 2006' AS world_cup_year,
+	team,
+	games_played,
+	goals_for
+FROM
+    fifa_2006
+UNION ALL	  
+SELECT 
+    'wc 2002' AS world_cup_year,
+	teams,
+	games_played,
+	goals_for
+FROM
+    fifa_2002
+UNION ALL
+SELECT 
+    'wc 2010' AS world_cup_year,
+	team,
+	games_played,
+	goals_for
+FROM
+    fifa_2010
+UNION ALL
+SELECT 
+    'wc 2014' AS world_cup_year,
+	team,
+	games_played,
+	goals_for
+FROM
+    fifa_2014
+UNION ALL
+SELECT 
+    'wc 2018' AS world_cup_year,
+	team,
+	games_played,
+	goals_for
+FROM
+    fifa_2018
+	)
+
+SELECT 
+    *
+FROM
+    all_world_cup
+;
+--Q8,the country with the highest and lowest goals against 
+     WITH
+    all_world_cup AS (
+SELECT 
+    'wc 2006' AS world_cup_year,
+	team,
+	games_played,
+	goals_against
+FROM
+    fifa_2006
+UNION ALL	  
+SELECT 
+    'wc 2002' AS world_cup_year,
+	teams,
+	games_played,
+	goal_against
+FROM
+    fifa_2002
+UNION ALL
+SELECT 
+    'wc 2010' AS world_cup_year,
+	team,
+	games_played,
+	goals_against
+FROM
+    fifa_2010
+UNION ALL
+SELECT 
+    'wc 2014' AS world_cup_year,
+	team,
+	games_played,
+	goals_against
+FROM
+    fifa_2014
+UNION ALL
+SELECT 
+    'wc 2018' AS world_cup_year,
+	team,
+	games_played,
+	goals_against
+FROM
+    fifa_2018
+	)
+
+SELECT 
+    *
+FROM
+    all_world_cup
+;
+--Q9,the country with the highest and lowest goals difference
+  WITH
+    all_world_cup AS (
+SELECT 
+    'wc 2006' AS world_cup_year,
+	team,
+	games_played,
+	goal_difference
+FROM
+    fifa_2006
+UNION ALL	  
+SELECT 
+    'wc 2002' AS world_cup_year,
+	teams,
+	games_played,
+	goal_difference
+FROM
+    fifa_2002
+UNION ALL
+SELECT 
+    'wc 2010' AS world_cup_year,
+	team,
+	games_played,
+	goal_difference
+FROM
+    fifa_2010
+UNION ALL
+SELECT 
+    'wc 2014' AS world_cup_year,
+	team,
+	games_played,
+	goal_difference
+FROM
+    fifa_2014
+UNION ALL
+SELECT 
+    'wc 2018' AS world_cup_year,
+	team,
+	games_played,
+	goal_difference
+FROM
+    fifa_2018
+	)
+
+SELECT 
+    *
+FROM
+    all_world_cup
+;
+--Q10,the country with the highest and lowest points
+   WITH
+    all_world_cup AS (
+SELECT 
+    'wc 2006' AS world_cup_year,
+	team,
+	points
+FROM
+    fifa_2006
+UNION ALL	  
+SELECT 
+    'wc 2002' AS world_cup_year,
+	teams,
+	points
+FROM
+    fifa_2002
+UNION ALL
+SELECT 
+    'wc 2010' AS world_cup_year,
+	team,
+	points
+FROM
+    fifa_2010
+UNION ALL
+SELECT 
+    'wc 2014' AS world_cup_year,
+	team,
+	points
+FROM
+    fifa_2014
+UNION ALL
+SELECT 
+    'wc 2018' AS world_cup_year,
+	team,
+	points
+FROM
+    fifa_2018
+	)
+
+SELECT 
+    *
+FROM
+    all_world_cup
+;
+                
